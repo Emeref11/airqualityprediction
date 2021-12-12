@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.container{
+    width: 87%;
+    margin: 0 auto;
+}
+
+.banner{
+    height: 100vh;
+    background-image: url(../static/udara_jakarta.jpg);
+    background-size: cover;
+    background-position-y: -70px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+}
+.model {
+    height:56vh;
+    margin-bottom: 20vh;
+}
+form{
+    display: grid;
+}
+form .capsule{
+    display:grid;
+    grid-template-columns: 0.2fr 0.2fr;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 0;
+}
+form h3{
+    margin: 0;
+}
+form .form-group{
+    display: grid;
+    justify-content: center;
+}
+
+form .submit-btn{
+    margin: 0 auto;
+    width: 30%;
+}
+
+.prediction{
+    margin: 1em auto;
+    margin-bottom: 2em;
+    text-align: center;
+}

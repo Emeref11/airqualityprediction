@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mikrokredensial Final Project | Air Quality Prediction</title>
+        <meta name="description" content="Air Quality Prediction">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+        <!-- bootstrap links -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>  
+        <section class="banner">
+            <div class="container">
+                <h1>Prediksi Kualitas Udara Jakarta</h1>
+                <p>Berdasarkan IQAir tahun 2021, Provinsi DKI Jakarta adalah salah satu provinsi yang mempunyai tingkat kualitas udara terburuk di dunia.Faktor yang mempengaruhi kualitas udara tersebut antara <strong>SO2,CO,O3,NO2</strong> cek kualitas udara di Jakarta sekarang!</p>
+            </div>
+        </section>
+
+         <section class="model">
+            <div class="container">
+                {% if message %}
+                <div class="alert alert-danger" role="alert">
+                   {{message | safe}}
+                </div>
+                {% endif %}
+                <form action="/predicting" method="POST">
+                    <div class="capsule">
+                        <div class="form-group">
+                            <h3>PM2.5</h3>
+                            <input
+                              type="text"
+                              name="pm25"
+                              placeholder="Nilai PM2.5" class="form-control"
+                            />
+                          </div>
+                          <div class="form-group">
+                              <h3>PM10</h3>
+                              <input
+                                type="text"
+                                name="pm10"
+                                placeholder="Nilai PM10" class="form-control"
+                              />
+                          </div>
+                          <div class="form-group">
+                              <h3>SO2</h3>
+                              <input
+                                type="text"
+                                name="so2"
+                                placeholder="Nilai SO2" class="form-control"
+                              />
+                          </div>
+                          <div class="form-group">
+                              <h3>CO</h3>
+                              <input
+                                type="text"
+                                name="co"
+                                placeholder="Nilai CO" class="form-control"
+                              />
+                          </div>
+                          <div class="form-group">
+                              <h3>O3</h3>
+                              <input
+                                type="text"
+                                name="o3"
+                                placeholder="Nilai O3" class="form-control"
+                              />
+                          </div>
+                          <div class="form-group">
+                              <h3>NO2</h3>
+                              <input
+                                type="text"
+                                name="no2"
+                                placeholder="Nilai NO2" class="form-control"
+                              />
+                          </div>
+                    </div>
+                    <input type="submit" value="Predict!" class="btn btn-success submit-btn" />
+                </form>
+                {% if prediction %}
+                <div class="alert alert-success prediction" role="alert">
+                    <p>Hasil Prediksi: {{prediction}}</p>
+                    <p>{{ categori }}</p>
+                 </div>
+                {% endif %}
+            </div>
+
+        </section>
+    </body>
+</html>
